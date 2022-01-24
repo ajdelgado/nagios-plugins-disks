@@ -150,7 +150,7 @@ do
   then
     ERRORDEVICES="$ERRORDEVICES ${dev} [${devcnt}]"
   fi
-  TOTAL=$TOTAL+${RESULTS[${devcnt}]}
+  TOTAL=$((TOTAL+RESULTS[devcnt]))
   ((devcnt++))
 done
 
