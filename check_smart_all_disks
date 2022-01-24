@@ -144,8 +144,8 @@ do
     RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr7
   fi
   #if [ -n $attr8  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr8
-  fi
+  #   RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr8
+  # fi
   if [ -n "${attr9}"  ]; then
     RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr9
   fi
