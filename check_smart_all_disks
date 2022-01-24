@@ -37,7 +37,7 @@ function check_ata_error_count()
 {
   $SMARTCTL --quietmode=errorsonly --log=error "${1}" > "${OUT}"
 
-  if [[ $(wc -l "${OUT}") -eq 0 ]]
+  if [[ $(wc -l "${OUT}" |awk '{print($1)}') -eq 0 ]]
   then
     echo 0
   else
