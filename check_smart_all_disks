@@ -4,7 +4,7 @@
 [[ $(id -u) -ne 0 ]] && echo "$0 needs to run as root to read SMART data." && exit 3
 
 DEVS=$(find /dev/disk/by-id/ -iname '*scsi*' -and -not -iname '*part*' -and -not -iname '*QEMU_DVD-ROM*' -ls | gawk  '{print $13}' | cut -f3 -d/ | sed -e 's/\(.*\)/\/dev\/\1/'|sort -u)
-#DEVS=$(echo "${DEVS}")
+DEVS=$(echo ${DEVS})
 
 if [ -f /etc/nagios/check_smart_devs ]
 then
