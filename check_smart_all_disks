@@ -115,39 +115,39 @@ do
   #attr8=$(check_attribute "${dev}" "Media_Wearout_Indicator")
   attr9=$(check_attribute "${dev}" "End-to-End_Error")
 
-  RESULTS["${devcnt}"]=0
+  RESULTS[${devcnt}]=0
   if [ -n "${errors}" ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$errors
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$errors
   fi
   if [ -n "${health}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$health
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$health
   fi
   if [ -n "${attr1}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr1
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr1
   fi
   if [ -n "${attr2}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr2
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr2
   fi
   #if [ -n $attr3  ]; then
-  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr3
+  #  RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr3
   #fi
   #if [ -n $attr4  ]; then
-  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr4
+  #  RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr4
   #fi
   #if [ -n $attr5  ]; then
-  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr5
+  #  RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr5
   #fi
   if [ -n "${attr6}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr6
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr6
   fi
   if [ -n "${attr7}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr7
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr7
   fi
   #if [ -n $attr8  ]; then
-  #   RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr8
+  #   RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr8
   # fi
   if [ -n "${attr9}"  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr9
+    RESULTS[${devcnt}]=${RESULTS[${devcnt}]}+$attr9
   fi
 
   if [[ ${RESULTS[${devcnt}]} -gt 0 ]]
