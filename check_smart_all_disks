@@ -3,6 +3,12 @@
 
 [[ $(id -u) -ne 0 ]] && echo "$0 needs to run as root to read SMART data." && exit 3
 
+if [ "${1}" == "-d" ]; then
+  DEBUG=1
+  shift
+else
+  DEBUG=0
+fi
 DEVS=$(find /dev/disk/by-id/ -iname '*scsi*' -and -not -iname '*part*' -and -not -iname '*QEMU_DVD-ROM*' -ls | gawk  '{print $13}' | cut -f3 -d/ | sed -e 's/\(.*\)/\/dev\/\1/'|sort -u)
 DEVS=$(echo ${DEVS})
 
@@ -90,6 +96,9 @@ devcnt=0
 for dev in $DEVS
 do
 
+  if [[ "${DEBUG}" == "1" ]]; then
+    echo "[DEBUG] Checking disk '${dev}'..."
+  fi
   if [[ x$RAIDTYPE != "x" ]]
   then
     SMARTCTL="smartctl --device=$RAIDTYPE,${devcnt}"
