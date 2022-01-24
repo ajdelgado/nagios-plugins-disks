@@ -129,14 +129,14 @@ do
     RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr2
   fi
   #if [ -n $attr3  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr3
-  fi
+  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr3
+  #fi
   #if [ -n $attr4  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr4
-  fi
+  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr4
+  #fi
   #if [ -n $attr5  ]; then
-    RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr5
-  fi
+  #  RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr5
+  #fi
   if [ -n "${attr6}"  ]; then
     RESULTS["${devcnt}"]=${RESULTS["${devcnt}"]}+$attr6
   fi
