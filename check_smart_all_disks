@@ -9,8 +9,7 @@ if [ "${1}" == "-d" ]; then
 else
   DEBUG=0
 fi
-DEVS=$(find /dev/disk/by-id/ -iname '*scsi*' -and -not -iname '*part*' -and -not -iname '*QEMU_DVD-ROM*' -ls | gawk  '{print $13}' | cut -f3 -d/ | sed -e 's/\(.*\)/\/dev\/\1/'|sort -u)
-#DEVS=$(echo ${DEVS})
+DEVS=$(find /dev/disk/by-id/ -not -iname '*part*' -and -not -iname '*QEMU_DVD-ROM*' -and -not -iname '*dm-*' -and -not -iname '*lvm-*' -and -not -iname '*md-*' -ls | grep ' ->' |gawk  '{print $13}' | cut -f3 -d/ | sed -e 's/\(.*\)/\/dev\/\1/'|sort -u)
 
 if [ -f /etc/nagios/check_smart_devs ]
 then
