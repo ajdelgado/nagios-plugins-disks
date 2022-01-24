@@ -50,7 +50,7 @@ function check_ata_error_count()
     echo "ATA Error log: ${1} [${devcnt}]"
     cat "${OUT}"
     } >> "${NAGIOS_OUTPUT}"
-    NUM=$(grep 'Error Count:' "${OUT}" | sed -e 's/.*Error Count: \([0-9]\+\) .*/\1/g')
+    NUM=$(grep 'Error Count:' "${OUT}" | sed -e 's/^.*Error Count: \([0-9]*\).*/\1/g')
     #device_info $1
     echo "${NUM}"
   fi
