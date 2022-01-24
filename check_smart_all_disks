@@ -42,8 +42,7 @@ function check_ata_error_count()
 {
   $SMARTCTL --quietmode=errorsonly --log=error "${1}" > "${OUT}"
 
-  if [[ $(wc -l "${OUT}" |awk '{print($1)}') -eq 0 ]]
-  then
+  if [[ $(wc -l "${OUT}" |awk '{print($1)}') -eq 0 ]]; then
     echo 0
   else
     {
@@ -51,7 +50,7 @@ function check_ata_error_count()
     echo "ATA Error log: ${1} [${devcnt}]"
     cat "${OUT}"
     } >> "${NAGIOS_OUTPUT}"
-    NUM=$(grep 'ATA Error Count:' "${OUT}" | sed -e 's/^ATA Error Count: \([0-9]\+\) .*/\1/g')
+    NUM=$(grep 'Error Count:' "${OUT}" | sed -e 's/.*Error Count: \([0-9]\+\) .*/\1/g')
     #device_info $1
     echo "${NUM}"
   fi
@@ -68,8 +67,7 @@ function check_attribute()
 {
   LINE=$($SMARTCTL -A "${1}" | grep "${2}")
   RET=$(echo "${LINE}" | gawk '{print $10}')
-  if [[ $RET -gt 0 ]]
-  then
+  if [[ $RET -gt 0 ]]; then
     echo "" >> "${NAGIOS_OUTPUT}"
     echo "${1}" ["${devcnt}"] "${LINE}" >> "${NAGIOS_OUTPUT}"
     #device_info $1 >> "${NAGIOS_OUTPUT}"
@@ -84,8 +82,7 @@ function device_info()
   $SMARTCTL -a "${1}" | grep -E "Device Model|Serial Number|User Capacity|Power_On_Hours"
 }
 
-if [ -z "$DEVS" ]
-then
+if [ -z "$DEVS" ]; then
   echo "OK, No ATA/SATA devices found (virtual? hw-raid?)"
   /bin/rm "${OUT}" "${NAGIOS_OUTPUT}"
   exit 0
