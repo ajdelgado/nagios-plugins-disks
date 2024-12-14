@@ -177,6 +177,6 @@ then
 else
   /bin/rm "${OUT}" "${NAGIOS_OUTPUT}"
   #shellcheck disable=SC2068
-  echo "OK, no SMART errors found on '$(join_by ', ' ${DEVS[@]})'"
+  echo "OK, no SMART errors found on: $(join_by ', ' ${DEVS[@]})"
 fi
 
